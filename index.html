@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Aprenda jogar Xadrez do Zero</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="estilo.css">
+</head>
+<body id="body-principal">
+	
+	<header class="cabecalho-principal">
+		<img src="img/banner.png" alt="Banner do Aprenda jogar Xadrez do Zero" class="banner-img"/>
+		<nav class="menu-navegacao">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#pag-regras">Regras</a></li>
+				<li><a href="#dicas">Dicas</a></li>
+				<li><a href="#estrategia">Estratégia</a></li>
+				<li><a href="agendamentos.html">Agendamentos</a></li>
+			</ul>
+			<button id="btn-info" onclick="mostrarRegraDoDia()">Regra do Dia</button> 
+		</nav>
+	</header>
+	
+	<main class="conteudo-principal">
+		
+		<h1>Aprenda jogar Xadrez do Zero</h1>
+		<p class="introducao">O <strong>xadrez</strong> é um jogo milenar que desenvolve o raciocínio lógico, concentração e estratégia. Nesse site você aprenderá desde as <em>regras básicas até os primeiros movimentos</em> para começar a jogar e evoluir suas partidas.</p>
+		
+		<hr id="pag-regras"/>
+		
+		<section class="secao-regras">
+			<h2>Regras básicas do xadrez</h2>
+			<p>Nessa seção temos uma lista simples com os primeiros passos para iniciar no jogo.</p>
+			
+			<aside class="bloco-float">
+				<h3>🏆 Destaque de Estratégia</h3>
+				<p>O objetivo é dar **xeque-mate** no rei adversário. Lembre-se de controlar o centro do tabuleiro (d4, e4, d5, e5)!</p>
+			</aside>
+			<ul>
+				<li>O tabuleiro possui 64 casas, claras e escuras.</li>
+				<li>Cada jogador inicia com 16 peças.</li>
+				<li id="regra-dinamica">Cada peça tem um movimento específico. (Conteúdo será atualizado pelo JS)</li>
+				<li>As brancas sempre começam a partida.</li>
+			</ul>
+			
+			<div class="contador-js">
+				<h3>Controle de Prática:</h3>	<!-- seria bem legal se tivesse pelo menos uns 5 exemplos de problemas táticos, ainda sem sucesso -->
+				<p>Problemas Táticos Resolvidos: <span id="contador-tatico">0</span></p>
+				<button onclick="incrementarContador()">Resolver Mais Um</button>
+			</div>
+
+		</section>
+		
+		<hr id="dicas"/>
+
+		<section class="secao-dicas">
+			<h2>Dicas sobre as peças e seus movimentos</h2>
+			<p>Clique em uma peça para ver o resumo do seu movimento e destacá-la no tabuleiro.</p>
+			
+			<div class="pecas-container">
+				<div class="peca" id="rei" onclick="mostrarMovimento('rei'); destacarPeca('rei')">
+					<img src="img/rei.png" alt="Rei" />
+					<h3>Rei</h3>
+				</div>
+				<div class="peca" id="rainha" onclick="mostrarMovimento('rainha'); destacarPeca('rainha')">
+					<img src="img/rainha.png" alt="Rainha" />
+					<h3>Rainha</h3>
+				</div>
+				<div class="peca" id="torre" onclick="mostrarMovimento('torre'); destacarPeca('torre')">
+					<img src="img/torre.png" alt="Torre" />
+					<h3>Torre</h3>
+				</div>
+				<div class="peca" id="bispo" onclick="mostrarMovimento('bispo'); destacarPeca('bispo')">
+					<img src="img/bispo.png" alt="Bispo" />
+					<h3>Bispo</h3>
+				</div>
+				<div class="peca" id="cavalo" onclick="mostrarMovimento('cavalo'); destacarPeca('cavalo')">
+					<img src="img/cavalo.png" alt="Cavalo" />
+					<h3>Cavalo</h3>
+				</div>
+				<div class="peca" id="peao" onclick="mostrarMovimento('peao'); destacarPeca('peao')">
+					<img src="img/peao.png" alt="Peão" />
+					<h3>Peão</h3>
+				</div>
+			</div>
+			
+			<div id="detalhe-movimento" class="detalhe-movimento">
+				Clique em uma peça acima para ver um resumo.
+			</div>
+			
+		</section>
+
+		<hr id="estrategia"/>
+		
+		<section class="secao-estrategia">
+			<h2>Estratégia fundamentais para melhorar o teu xadrez</h2>
+			<div class="estrategia-flex-container">
+				<ul class="lista-estrategia">
+					<li>Controle do centro.</li>
+					<li>Desenvolvimento rápido.</li>
+					<li>Segurança do rei (Roque).</li>
+					<li>Cooperação das peças.</li>
+					<li>Planejamento e paciência.</li>
+				</ul>
+				<video src="img/get.mp4" width="300" controls autoplay preload="auto" loop class="video-estrategia">
+					Seu navegador não suporta vídeo!	
+				</video>
+			</div>
+		</section>
+		
+	</main>
+	
+	<footer class="rodape-principal">
+		<p>Desenvolvido por <a href="https://www.instagram.com/reiginaldorosa1/" target="_blank">Reignaldo Rosa - 2025</a></p>
+	</footer>
+	
+	<script src="script.js"></script>
+</body>
+</html>

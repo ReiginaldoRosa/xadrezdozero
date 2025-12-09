@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Aprenda jogar Xadrez do Zero - Agendamentos</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css"> 
+        <style>
+            /* Estilos Específicos para a página de Agendamento */
+            
+            /* Centraliza o formulário na tela usando Flexbox */
+            .main-agendamento {
+                display: flex;
+                flex-direction: column;
+                align-items: center; 
+                justify-content: center; 
+                min-height: 80vh; 
+                padding: 20px;
+            }
+
+            .formulario-container {
+                max-width: 600px;
+                width: 100%;
+                padding: 30px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background-color: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                box-sizing: border-box;
+            }
+
+            .formulario-container label {
+                display: block; 
+                margin-top: 10px;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #212121;
+            }
+
+            .formulario-container input[type="text"], 
+            .formulario-container input[type="email"], 
+            .formulario-container input[type="tel"],
+            .formulario-container input[type="date"],
+            .formulario-container input[type="time"],
+            .formulario-container input[type="number"],
+            .formulario-container select,
+            .formulario-container textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
+            .formulario-container fieldset {
+                margin-top: 20px; /* Ajuste a margem superior para alinhar verticalmente */
+                padding: 15px;
+                border: 1px solid #3F51B5;
+                border-radius: 5px;
+            }
+            
+            /* Ajuste para alinhar horizontalmente os botões de rádio */
+            .formulario-container fieldset label {
+                display: inline-block; /* Faz a label do rádio se comportar como texto */
+                margin-right: 15px; /* Espaço entre as opções */
+                font-weight: normal; /* Para diferenciar do label principal */
+                margin-top: 0;
+            }
+            
+            /* Alinhar verticalmente o input de rádio com o texto */
+            .formulario-container fieldset input[type="radio"] {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+            .botoes-agendamento {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .botoes-agendamento input[type="submit"], .botoes-agendamento input[type="reset"] {
+                padding: 10px 20px;
+                margin: 0 10px;
+                background-color: #3F51B5;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .botoes-agendamento input[type="submit"]:hover {
+                background-color: #303F9F;
+            }
+            
+            /* --- FLEXBOX PARA ALINHAMENTO HORIZONTAL DOS CAMPOS CURTOS --- */
+            .campos-alinhados {
+                display: flex;
+                gap: 15px; 
+                margin-top: 10px;
+            }
+
+            .campo-curto {
+                flex-basis: calc(33.33% - 10px); 
+                flex-grow: 1;
+            }
+
+            /* Responsividade: Empilha em telas pequenas */
+            @media screen and (max-width: 600px) {
+                .campos-alinhados {
+                    flex-direction: column;
+                    gap: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="cabecalho-principal">
+            <img src="img/banner.png" alt="Banner do Aprenda jogar Xadrez do Zero" class="banner-img"/>
+            <nav class="menu-navegacao">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#pag-regras">Regras</a></li>
+                    <li><a href="index.html#dicas">Dicas</a></li>
+                    <li><a href="index.html#estrategia">Estratégia</a></li>
+                    <li><a href="#">Agendamentos</a></li>
+                </ul>
+                <button id="btn-info" onclick="mostrarRegraDoDia()">Regra do Dia</button> 
+            </nav>
+        </header>
+
+        <main class="main-agendamento">
+            <div class="formulario-container">
+                <h1 style="text-align: center; margin-top: 0;">Agendamento de Aulas de Xadrez</h1> 
+                <p style="text-align: center;">Agende sua **aula experimental grátis** preenchendo o formulário abaixo.</p>
+        
+                <form name="formAgendamento" method="post" action="#">          
+                    
+                    <label for="nome">Nome:</label>
+                    <input id="nome" type="text" name="nome" placeholder="Digite teu nome completo" required autofocus />
+
+                    <label for="e-mail">E-mail:</label> 
+                    <input id="e-mail" type="email" name="e-mail" placeholder="nomedeusuario@email.com" />
+
+                    <label for="celular">Celular:</label>
+                    <input id="celular" type="tel" name="celular" placeholder="(99) 99999-9999" pattern="^\(?\d{2}\)\d{5}[-\s]\d{4}.*?$" />
+
+                    <div class="campos-alinhados">
+                        
+                        <div class="campo-curto">
+                            <label for="data">Data Desejada:</label> 
+                            <input id="data" type="date" name="" />
+                        </div>
+                        
+                        <div class="campo-curto">
+                            <label for="hora">Hora Desejada:</label> 
+                            <input id="hora" type="time" name="" />
+                        </div>
+                        
+                        <div class="campo-curto">
+                            <label for="aulas" >Nº de Aulas (pacote):</label> 
+                            <input id="aulas" type="number" name="" min="1" max="10" step="1" value="1" />
+                        </div>
+                        
+                    </div>
+                    <label for="nivel">Nível Atual:</label> 
+                    <select id="nivel" name="nivel" >
+                        <option value="">Selecione seu Nível</option>
+                        <option value="iniciante">Iniciante</option> 
+                        <option value="basico">Básico</option> 
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select>
+                    
+                    <fieldset>
+                        <legend>Gênero:</legend>
+                        <input id="masc" type="radio" name="genero" value="masc"><label for="masc">Masculino</label>
+                        <input id="fem" type="radio" name="genero" value="fem"><label for="fem">Feminino</label>
+                        <input id="outr" type="radio" name="genero" value="outr"><label for="outr">Outro</label>
+                    </fieldset>
+                    <label for='msg'>Comentários / Objetivos:</label> 
+                    <textarea id="msg" rows="4" placeholder="Diga seus objetivos com o xadrez"></textarea>
+
+                    <div class="botoes-agendamento">
+                        <input type="submit" name="btn-agendar" value="AGENDAR AULA" /> 
+                        <input type="reset" name="btn-cancelar" value="LIMPAR" />
+                    </div>
+                </form>
+            </div>
+        </main>
+        
+        <footer class="rodape-principal">
+            <p>Desenvolvido por <a href="https://www.instagram.com/reiginaldorosa1/" target="_blank">Reignaldo Rosa - 2025</a></p>
+        </footer>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

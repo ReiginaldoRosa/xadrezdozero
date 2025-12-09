@@ -1,0 +1,175 @@
+/* RESET E ESTILOS GERAIS  */
+body {
+    font-family: 'Avenir LT Pro', Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #3F51B5;
+    font-family: 'ROOSTER PERSONAL USE', sans-serif;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.conteudo-principal {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* ---  IMPLEMENTAÇÃO FLEXBOX: Menu de Navegação  --- */
+.menu-navegacao ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    justify-content: center;
+    gap: 20px; 
+    background-color: #5C6BC0;
+    padding: 10px 0;
+}
+
+.menu-navegacao a, #btn-info {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #3F51B5;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-navegacao a:hover, #btn-info:hover {
+    background-color: #303F9F;
+    transform: translateY(-2px); 
+}
+
+
+/* ---  IMPLEMENTAÇÃO FLOAT: Bloco de Destaque  --- */
+.bloco-float {
+    width: 35%;
+    padding: 15px;
+    margin: 10px 0 15px 20px;
+    border: 2px solid #FF9800;
+    background-color: #FFFDE7;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    
+    float: right; 
+}
+
+.secao-regras::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.contador-js {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed #757575;
+}
+
+/* ---  IMPLEMENTAÇÃO FLEXBOX & DESTAQUE: Cards de Peças  --- */
+.pecas-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    /* Mudança: Usamos 'space-around' ou 'center' em vez de 'space-between' 
+       para garantir que as 6 peças caibam, distribuindo o espaço livre. */
+    justify-content: space-around; 
+    gap: 5px; /* Mantemos o gap pequeno */
+    margin-top: 20px;
+}
+
+.peca {
+    background-color: white;
+    padding: 5px; 
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    /* **AJUSTE CRÍTICO**: Reduzido para 15% para criar margem de folga */
+    flex-basis: 15%; 
+    transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s; 
+}
+
+/* Classes de Destaque e Imagem  */
+.peca.esmaecida {
+    opacity: 0.5;
+}
+
+.peca:hover {
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    transform: scale(1.03); 
+}
+
+.peca.selecionada {
+    opacity: 1 !important; 
+    box-shadow: 0 0 15px rgba(63, 81, 181, 0.8); 
+    transform: scale(1.05);
+}
+
+.peca img {
+    width: 70px; 
+    height: auto;
+}
+
+.detalhe-movimento {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #E8EAF6;
+    border-left: 5px solid #3F51B5;
+}
+
+/* Layout Estratégia (FLEXBOX)  */
+.estrategia-flex-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; 
+}
+
+.video-estrategia {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- RESPONSIVIDADE  --- */
+@media screen and (max-width: 768px) {
+    
+    .menu-navegacao ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .bloco-float {
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    /* 3 por linha em telas menores */
+    .peca {
+        flex-basis: calc(33.33% - 10px); 
+    }
+    
+    .estrategia-flex-container {
+        flex-direction: column;
+    }
+}
+
+/* RODAPÉ  */
+.rodape-principal {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #3F51B5;
+    color: white;
+    clear: both; 
+}
