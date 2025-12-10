@@ -90,7 +90,51 @@ function mostrarMovimento(peca) {
         `<h3>Movimento do ${peca.toUpperCase()}</h3><p>${resumo}</p>`;
 }
 
-// --- 5. Evento onload (Boas-vindas) ---
+// --- 5. Evento onload (Boas-vindas - Atualizado) ---
 window.onload = function() {
-    alert("Bem-vindo ao Xadrez do Zero! Seu projeto está carregado com Float, Flexbox e JavaScript.");
+    // Verifica se o elemento com o ID 'body-principal' existe na página
+    if (document.getElementById('body-principal')) {
+        alert("Bem-vindo ao Xadrez do Zero! Seu projeto está carregado com Float, Flexbox e JavaScript.");
+    }
+};
+
+// --- 6. Botão Voltar ao Topo (Nova funcionalidade) ---
+
+// Obtém o elemento do botão
+const btnTopo = document.getElementById("btn-topo");
+
+// Função para mostrar ou esconder o botão
+function toggleBtnTopo() {
+    // Se a rolagem vertical for maior que 300 pixels, o botão é visível
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btnTopo.style.opacity = "1";
+        btnTopo.style.visibility = "visible";
+    } else {
+        btnTopo.style.opacity = "0";
+        btnTopo.style.visibility = "hidden";
+    }
+}
+
+// Adiciona o event listener para monitorar a rolagem da janela
+window.onscroll = function() {
+    toggleBtnTopo();
+};
+
+// Adiciona a funcionalidade de rolagem suave (opcional, mas recomendado)
+btnTopo.addEventListener('click', function(e) {
+    e.preventDefault(); // Impede o comportamento padrão do link (#)
+
+    // Rolagem suave para o topo da página
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' 
+    });
+});
+
+// A função window.onload existente precisa ser mantida:
+window.onload = function() {
+    // Verifica se o elemento com o ID 'body-principal' existe na página
+    if (document.getElementById('body-principal')) {
+        alert("Bem-vindo ao Xadrez do Zero! Seu projeto está carregado com Float, Flexbox e JavaScript.");
+    }
 };

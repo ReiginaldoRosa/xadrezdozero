@@ -128,16 +128,38 @@ h1, h2, h3 {
     border-left: 5px solid #3F51B5;
 }
 
-/* Layout Estratégia (FLEXBOX)  */
+/* Layout Estratégia (FLEXBOX)  
 .estrategia-flex-container {
     display: flex;
     gap: 30px;
     align-items: flex-start; 
+}*/
+
+/* No seu estilo.css */
+.estrategia-flex-container {
+    display: flex;
+    justify-content: space-between; /* Mantém a lista e o vídeo separados */
+    align-items: flex-start;
+    max-width: 800px; /* Defina uma largura máxima para que possa ser centralizado */
+    /* NOVA LINHA para centralizar o contêiner dentro da largura da tela */
+    margin: 0 auto; 
+    padding: 20px;
 }
 
+
+/*
 .video-estrategia {
     max-width: 100%;
     height: auto;
+}*/
+
+/* No seu estilo.css */
+.video-estrategia {
+    /* Garante que o vídeo tenha um espaço à esquerda */
+    margin-left: 20px; 
+    /* Mantém as outras configurações que você já deve ter */
+    border: 1px solid #333; 
+    border-radius: 8px;
 }
 
 /* --- RESPONSIVIDADE  --- */
@@ -172,4 +194,33 @@ h1, h2, h3 {
     background-color: #3F51B5;
     color: white;
     clear: both; 
+}
+
+/* Estilo para o botão "Voltar ao Topo" */
+#btn-topo {
+    /* Posição Fixa no canto */
+    position: fixed;
+    bottom: 20px; /* 20px acima da borda inferior */
+    right: 20px; /* 20px da borda direita */
+    
+    /* Estilização da "bolinha" */
+    background-color: #333; /* Cor de fundo escura */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 50px; /* Deixa ele redondo */
+    
+    /* Outros ajustes */
+    font-size: 14px;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    transition: background-color 0.3s, opacity 0.5s; /* Efeito de transição */
+    
+    /* Esconder por padrão (será mostrado com JS) */
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-topo:hover {
+    background-color: #007bff; /* Mude a cor ao passar o mouse */
 }
