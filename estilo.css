@@ -1,16 +1,40 @@
 /* RESET E ESTILOS GERAIS  */
 body {
-    font-family: 'Avenir LT Pro', Arial, sans-serif;
+    /* FONTE PRINCIPAL: Poppins (Moderna e Legível) */
+    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     color: #333;
     background-color: #f4f4f4;
-    line-height: 1.6;
+    line-height: 1.7; /* Aumentado para melhor legibilidade */
 }
 
+/* MELHORIA NOS TÍTULOS (Playfair Display e Visibilidade) */
 h1, h2, h3 {
     color: #3F51B5;
-    font-family: 'ROOSTER PERSONAL USE', sans-serif;
+    /* FONTE DE TÍTULOS: Playfair Display (Clássica e Elegante) */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
+
+.conteudo-principal h1 {
+    font-size: 3.5em; /* Título principal grande */
+    text-align: center;
+    margin-bottom: 0.5em;
+    color: #303F9F; /* Usando uma cor mais escura da paleta */
+}
+
+h2 {
+    font-size: 2.5em; /* Título de seção */
+    margin-top: 1.5em;
+    border-bottom: 3px solid #5C6BC0; /* Adiciona uma linha para separação visual */
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.8em; /* Subtítulos */
+    color: #3F51B5;
+}
+
 
 .banner-img {
     width: 100%;
@@ -81,10 +105,8 @@ h1, h2, h3 {
 .pecas-container {
     display: flex; 
     flex-wrap: wrap; 
-    /* Mudança: Usamos 'space-around' ou 'center' em vez de 'space-between' 
-       para garantir que as 6 peças caibam, distribuindo o espaço livre. */
     justify-content: space-around; 
-    gap: 5px; /* Mantemos o gap pequeno */
+    gap: 5px; 
     margin-top: 20px;
 }
 
@@ -95,10 +117,16 @@ h1, h2, h3 {
     text-align: center;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    /* **AJUSTE CRÍTICO**: Reduzido para 15% para criar margem de folga */
     flex-basis: 15%; 
     transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s; 
 }
+
+/* Ajuste específico para h3 dentro das peças */
+.peca h3 {
+    font-size: 1.3em; /* Tamanho ajustado para o card */
+    margin: 5px 0 0 0;
+}
+
 
 /* Classes de Destaque e Imagem  */
 .peca.esmaecida {
@@ -128,36 +156,18 @@ h1, h2, h3 {
     border-left: 5px solid #3F51B5;
 }
 
-/* Layout Estratégia (FLEXBOX)  
+/* Layout Estratégia (FLEXBOX)  */
 .estrategia-flex-container {
     display: flex;
-    gap: 30px;
-    align-items: flex-start; 
-}*/
-
-/* No seu estilo.css */
-.estrategia-flex-container {
-    display: flex;
-    justify-content: space-between; /* Mantém a lista e o vídeo separados */
+    justify-content: space-between; 
     align-items: flex-start;
-    max-width: 800px; /* Defina uma largura máxima para que possa ser centralizado */
-    /* NOVA LINHA para centralizar o contêiner dentro da largura da tela */
+    max-width: 800px; 
     margin: 0 auto; 
     padding: 20px;
 }
 
-
-/*
 .video-estrategia {
-    max-width: 100%;
-    height: auto;
-}*/
-
-/* No seu estilo.css */
-.video-estrategia {
-    /* Garante que o vídeo tenha um espaço à esquerda */
     margin-left: 20px; 
-    /* Mantém as outras configurações que você já deve ter */
     border: 1px solid #333; 
     border-radius: 8px;
 }
@@ -184,7 +194,14 @@ h1, h2, h3 {
     .estrategia-flex-container {
         flex-direction: column;
     }
+
+    .video-estrategia {
+        margin-left: 0; /* Remove margem extra em modo coluna */
+        margin-top: 20px;
+        width: 100%; /* Ocupa a largura total */
+    }
 }
+
 
 /* RODAPÉ  */
 .rodape-principal {
@@ -200,21 +217,21 @@ h1, h2, h3 {
 #btn-topo {
     /* Posição Fixa no canto */
     position: fixed;
-    bottom: 20px; /* 20px acima da borda inferior */
-    right: 20px; /* 20px da borda direita */
+    bottom: 20px; 
+    right: 20px; 
     
     /* Estilização da "bolinha" */
-    background-color: #333; /* Cor de fundo escura */
-    color: white; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado */
-    padding: 10px 15px; /* Espaçamento interno */
-    border-radius: 50px; /* Deixa ele redondo */
+    background-color: #333; 
+    color: white; 
+    text-decoration: none; 
+    padding: 10px 15px; 
+    border-radius: 50px; 
     
     /* Outros ajustes */
     font-size: 14px;
-    z-index: 1000; /* Garante que fique acima de outros elementos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    transition: background-color 0.3s, opacity 0.5s; /* Efeito de transição */
+    z-index: 1000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, opacity 0.5s; 
     
     /* Esconder por padrão (será mostrado com JS) */
     opacity: 0;
